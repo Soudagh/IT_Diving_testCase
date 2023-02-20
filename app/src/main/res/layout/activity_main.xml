@@ -1,34 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/top_card"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.IT_Diving_testCase.AppBarOverlay">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.IT_Diving_testCase.PopupOverlay" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardElevation="0dp"
 
-    </com.google.android.material.appbar.AppBarLayout>
+        app:cardBackgroundColor="@color/gray_1000"
+        >
 
-    <include layout="@layout/content_main" />
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/messages_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+            android:layout_gravity="start"
+            android:background="@color/gray_1000"
+            android:src="@drawable/message" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/contacts_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:background="@color/gray_1000"
+            android:src="@drawable/contacts" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/repanel_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="end"
+            android:background="@color/gray_1000"
+            android:src="@drawable/repanel" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/top_user"
+
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:cardCornerRadius="10dp"
+
+        android:layout_marginTop="20dp"
+
+        app:layout_constraintTop_toBottomOf="@id/top_card"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/ic_launcher_round"
+            tools:src="@tools:sample/avatars"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottom_user"
+
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:cardCornerRadius="10dp"
+
+        app:layout_constraintTop_toBottomOf="@id/top_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/ic_launcher_round"
+            tools:src="@tools:sample/avatars"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottom_card"
+
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        android:layout_margin="16dp"
+
+        app:cardBackgroundColor="@color/gray_1000"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <Button
+                style="@style/Widget.Material3.Button.IconButton.Filled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="start"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/gray_700"
+                android:drawableEnd="@drawable/videocam" />
+
+            <Button
+                style="@style/Widget.Material3.Button.IconButton.Filled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/gray_700"
+                android:drawableEnd="@drawable/mic_on" />
+
+            <Button
+                style="@style/Widget.Material3.Button.IconButton.Filled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/gray_700"
+                android:drawableEnd="@drawable/wave_hand" />
+
+            <Button
+                style="@style/Widget.Material3.Button.IconButton.Filled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/red"
+                android:drawableEnd="@drawable/call_end" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
